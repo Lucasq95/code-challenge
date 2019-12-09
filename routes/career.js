@@ -26,6 +26,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+/* GET ALL CAREERS */
 router.get('/', async (req, res) => {
   try {
     const careers = await Careers.find().lean();
@@ -58,6 +59,7 @@ const subscribeStudent = async (student, career) => {
 
 }
 
+/* SUBSCRIBE TO CAREER */
 router.post('/subscribe', async (req, res) => {
   const body = req.body;
   if(!body.career || !body.student) {

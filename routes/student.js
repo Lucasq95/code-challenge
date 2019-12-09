@@ -24,6 +24,7 @@ router.post('/', async (req, res) => {
 
 });
 
+/* GET ALL STUDENTS */
 router.get('/', async (req, res) => {
   try {
     const students = await Students.find().lean();

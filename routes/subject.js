@@ -26,6 +26,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+/* GET SUBJECTS */
 router.get('/', async (req, res) => {
   try {
     const subjects = await Subjects.find().lean();
@@ -71,6 +72,7 @@ const subscribeStudentToSubject = async (studentId, subjectId) => {
   });
 }
 
+/* SUBSCRIBE STUDENT TO SUBJECT */
 router.post('/subscribeStudent', async (req, res) => {
   const data = req.body;
   if(!data.student || !data.subject) {
@@ -98,6 +100,7 @@ const addSubjectToCareers = (subjectId, careers) => {
   });
 }
 
+/* ADD SUBJECT TO CAREER */
 router.post('/addToCareers',  async (req, res) => {
   const data = req.body;
   if(!data.careers || !data.subject) {
@@ -126,6 +129,7 @@ const closeSubject = async (studentSubjectId, grade) => {
   });
 }
 
+/* CLOSE SUBJECT */
 router.post('/closeSubject',  async (req, res) => {
   const data = req.body;
   if(!data.studentSubject || !data.grade) {

@@ -8,7 +8,7 @@
 
 ## Tests
 
-Correr el script test.sh
+Ejecutar el script tests.sh
 
 ## API
 
