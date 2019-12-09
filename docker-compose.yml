@@ -3,8 +3,9 @@ services:
   app:
     container_name: app
     build: .
+    command: node server.js
     environment:
-      - MONGODB_HOST=127.0.0.1
+      - MONGODB_HOST=mongo
       - MONGODB_PORT=27017
       - MONGODB_DB=facultad
     ports:

@@ -55,7 +55,7 @@ describe('Careers tests \n\n', function() {
       });
   });
 
-  it('Failed to Register new Student with missing_params', () => {
+  it('Failed to Register new Career with missing_params', () => {
     const body = {
       name: "Medicina"
     };

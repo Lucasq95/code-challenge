@@ -29,7 +29,8 @@ describe('Students tests \n\n', function() {
         response.body.length.should.be.equal(1)
         response.body[0].fullname.should.be.equal("Juan Perez");
         response.body[0].address.should.be.equal("Calle Falsa 123");
-        response.body[0].birthDate.should.be.equal("1995-12-11T03:00:00.000Z");
+        const bodyBirthDate = response.body[0].birthDate.substring(0, response.body[0].birthDate.indexOf('T'));
+        bodyBirthDate.should.be.equal("1995-12-11");
       });
   });
 

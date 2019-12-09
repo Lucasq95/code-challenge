@@ -19,6 +19,7 @@ if (process.env.MONGODB_USER && process.env.MONGODB_PASSWORD) {
 }
 const mongourl = `${`mongodb://${mongoAuth}${process.env.MONGODB_HOST}:`}${process.env.MONGODB_PORT}/${process.env.MONGODB_DB}`;
 
+console.warn(mongourl);
 mongoose.connect(mongourl, { useNewUrlParser: true, useUnifiedTopology: true  })
   .catch((error) => {
     console.error('Error mongoose connection: ', error);
