@@ -31,7 +31,7 @@ describe('Subjects tests \n\n', function() {
                degree: 'Licenciado en Sociologia'
              }),
              Subjects.create({
-               _id: "5c4a09796b13b42a8e793cf1",
+               _id: "5c4a09796b13b42a8e793cf8",
                name: 'Matematica 1',
                weeklyHours: 8,
                careers: ["5c4a09796b13b42a8e793cf1"]
@@ -88,7 +88,7 @@ describe('Subjects tests \n\n', function() {
 
   it('Add subject to one career', () => {
     const body = {
-      subject: "5c4a09796b13b42a8e793cf1",
+      subject: "5c4a09796b13b42a8e793cf8",
       careers: ["5c4a09796b13b42a8e793cf1"]
     };
     return request(app)
@@ -97,14 +97,14 @@ describe('Subjects tests \n\n', function() {
       .set('Accept', 'application/json')
       .expect(200)
       .then(async (response) => {
-        const newSubject = await Subjects.findById("5c4a09796b13b42a8e793cf1").lean();
+        const newSubject = await Subjects.findById("5c4a09796b13b42a8e793cf8").lean();
         newSubject.careers.length.should.be.equal(2);
       });
   });
 
   it('Add subject to multiple careers', () => {
     const body = {
-      subject: "5c4a09796b13b42a8e793cf1",
+      subject: "5c4a09796b13b42a8e793cf8",
       careers: ["5c4a09796b13b42a8e793cf1"]
     };
     return request(app)
@@ -113,7 +113,7 @@ describe('Subjects tests \n\n', function() {
       .set('Accept', 'application/json')
       .expect(200)
       .then(async (response) => {
-        const newSubject = await Subjects.findById("5c4a09796b13b42a8e793cf1").lean();
+        const newSubject = await Subjects.findById("5c4a09796b13b42a8e793cf8").lean();
         newSubject.careers.length.should.be.equal(3);
       });
   });
@@ -121,7 +121,7 @@ describe('Subjects tests \n\n', function() {
   it('Subscribe student to subject', () => {
     const body = {
       student: "5c4a09796b13b42a8e793cf2",
-      subject: "5c4a09796b13b42a8e793cf1"
+      subject: "5c4a09796b13b42a8e793cf8"
     }
     return request(app)
       .post(`/subjects/subscribeStudent`)
@@ -196,6 +196,16 @@ describe('Subjects tests \n\n', function() {
       .expect(500)
       .then((response) => {
         response.body.msg.should.be.equal('Error subscribing student: Student is not subscribed to the subject')
+      });
+  });
+
+  it('Get Subjects available for a career', () => {
+    return request(app)
+      .get(`/subjects/career/5c4a09796b13b42a8e793cf1`)
+      .set('Accept', 'application/json')
+      .expect(200)
+      .then((response) => {
+        response.body.length.should.be.equal(2);
       });
   });
 

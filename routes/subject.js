@@ -37,6 +37,18 @@ router.get('/', async (req, res) => {
   }
 });
 
+/* GET SUBJECTS AVAILABLE FOR A CAREER */
+router.get('/career/:id', async (req, res) => {
+  try {
+    const careerId = req.params.id;
+    const subjects = await Subjects.find({careers: careerId}).lean();
+    return res.status(200).json(subjects);
+  } catch(e) {
+    console.error('Error getting Subjects', e);
+    return res.status(500).json({msg: 'Unexpected error getting Subjects'});
+  }
+});
+
 const subscribeStudentToSubject = async (studentId, subjectId) => {
   return new Promise(async (resolve, reject) => {
     const studentFound = await Students.findById(studentId).lean();

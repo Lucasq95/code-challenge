@@ -58,6 +58,10 @@ Ejecutar el script tests.sh
 
     GET http://127.0.0.1:3000/subjects
 
+#### Obtener listado de materias disponibles para una carrera:
+
+    GET http://127.0.0.1:3000/subjects/career/:careerId
+
 #### Crear una nueva materia:
 
     POST http://127.0.0.1:3000/subjects
