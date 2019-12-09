@@ -2,7 +2,7 @@
 
 ## Instalación
 
-1. Hacer git clone del proyecto.
+1. git clone https://github.com/Lucasq95/code-challenge.git
 2. npm install
 3. Si se encuentra en linux puede correr el script ./run.sh que va a levantar un docker con el api.
 
