@@ -18,8 +18,4 @@ const subjectSchema = new Schema({
   timestamps: true,
 });
 
-subjectSchema.methods.toJSON = () => {
-  return this.toObject();
-};
-
 module.exports = mongoose.model('Subject', subjectSchema);

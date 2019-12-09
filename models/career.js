@@ -14,8 +14,5 @@ const careerSchema = new Schema({
   timestamps: true,
 });
 
-careerSchema.methods.toJSON = () => {
-  return this.toObject();
-};
 
 module.exports = mongoose.model('Career', careerSchema);

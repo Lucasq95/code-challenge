@@ -6,6 +6,10 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+const students = require('./routes/student');
+const careers = require('./routes/career');
+const subjects = require('./routes/subject');
+
 const app = express();
 mongoose.Promise = Promise;
 
@@ -24,6 +28,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/students', students);
+app.use('/careers', careers);
+app.use('/subjects', subjects);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

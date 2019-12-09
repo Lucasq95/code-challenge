@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const studentSchema = new Schema({
   status: {
     type: String,
-    enum: ['registered', 'studying', 'approved', 'failed'],
+    enum: ['registered', 'approved', 'failed'],
     default: 'registered',
   },
   grade: {
@@ -22,8 +22,4 @@ const studentSchema = new Schema({
   timestamps: true,
 });
 
-studentSchema.methods.toJSON = () => {
-  return this.toObject();
-};
-
-module.exports = mongoose.model('Student', studentSchema);
+module.exports = mongoose.model('StudentSubject', studentSchema);

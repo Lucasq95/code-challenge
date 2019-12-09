@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const Schema = mongoose.Schema;
 
 const studentSchema = new Schema({
   firstname: {
@@ -9,6 +9,10 @@ const studentSchema = new Schema({
     type: String,
   },
   fullname: {
+    type: String,
+    required: true,
+  },
+  address: {
     type: String,
     required: true,
   },
@@ -28,8 +32,5 @@ const studentSchema = new Schema({
   timestamps: true,
 });
 
-studentSchema.methods.toJSON = () => {
-  return this.toObject();
-};
 
 module.exports = mongoose.model('Student', studentSchema);
